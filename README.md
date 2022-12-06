@@ -26,7 +26,7 @@ Load package.
 library(delver)
 ```
 
-Set DELVE user token. `set_user_token` will open a dialog box if no token is provided. The DELVE user token is found in Workspace under the `PowerBI Profile` tab.
+Set DELVE user token. `set_user_token` will open a dialog box if no token is provided. The DELVE user token is found in Workspace under the 'PowerBI Profile' tab.
 
 ```
 set_user_token()
