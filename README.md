@@ -1,6 +1,6 @@
 ## delver
 
-R interface to [DELVE](https://dmvs.water.ca.gov/) API based on [`httr` package](https://httr.r-lib.org/).
+R interface to components of the [DELVE](https://dmvs.water.ca.gov/) API based on [`httr2` package](https://httr2.r-lib.org/).
 
 ### Prerequisites
 
@@ -32,9 +32,9 @@ Set DELVE user token. `set_user_token` will open a dialog box if no token is pro
 set_user_token()
 ```
 
-Query DELVE to return a dataset. Components of a query can be extracted from the DELVE url for a given file, e.g., https://dmvs.water.ca.gov/file-details?ProjectID=42&DataSetID=157&Version=1&FileName=EDBPS_collecting-water-quality-data_20210803.csv.
+Query DELVE to return a dataset file. Components of a query can be extracted from the DELVE URL for a given file, e.g., https://dmvs.water.ca.gov/file-details?ProjectID=42&DataSetID=157&Version=1&FileName=EDBPS_collecting-water-quality-data_20210803.csv.
 
 ```
-df = delve_query(project_id = 42, dataset_id = 157, version = 1,
-                 filename = "EDBPS_collecting-water-quality-data_20210803.csv")
+df = get_dataset_file(project_id = 42, dataset_id = 157, version = 1,
+                      filename = "EDBPS_collecting-water-quality-data_20210803.csv")
 ```
