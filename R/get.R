@@ -13,8 +13,8 @@
 #' @export
 
 get_dataset_file <- function(project_id, dataset_id, version, filename, user_token = get_user_token()) {
-  glue::glue("https://gateway.delve.water.ca.gov/api/projects/{project_id}/data-sets/{dataset_id}/
-             versions/{version}/files/{filename}/download") |>
+  glue::glue("https://gateway.delve.water.ca.gov/api/projects/{project_id}/data-sets/{dataset_id}/versions/{version}/files/{filename}/download") |>
+    httr2::request() |>
     httr2::req_headers(`X-DELVE-USER-TOKEN` = get_user_token()) |>
     httr2::req_user_agent("delver (https://github.com/EnvironmentalScienceAssociates/delver)") |>
     httr2::req_perform() |>
