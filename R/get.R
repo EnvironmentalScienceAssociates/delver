@@ -10,10 +10,13 @@
 #' @param version        Version (integer)
 #' @param filename       Filename
 #' @param user_token     DELVE user token
+#' @param use_qa         Boolean flag to use QA version of DELVE
 #' @export
 
-get_dataset_file <- function(project_id, dataset_id, version, filename, user_token = get_user_token()) {
-  glue::glue("https://gateway.delve.water.ca.gov/api/projects/{project_id}/data-sets/{dataset_id}/versions/{version}/files/{filename}/download") |>
+get_dataset_file <- function(project_id, dataset_id, version, filename,
+                             user_token = get_user_token(), use_qa = FALSE) {
+  qa = if (use_qa) "qa." else ""
+  glue::glue("https://gateway.{qa}delve.water.ca.gov/api/projects/{project_id}/data-sets/{dataset_id}/versions/{version}/files/{filename}/download") |>
     httr2::request() |>
     httr2::req_headers(`X-DELVE-USER-TOKEN` = get_user_token()) |>
     httr2::req_user_agent("delver (https://github.com/EnvironmentalScienceAssociates/delver)") |>

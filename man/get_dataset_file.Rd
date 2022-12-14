@@ -9,7 +9,8 @@ get_dataset_file(
   dataset_id,
   version,
   filename,
-  user_token = get_user_token()
+  user_token = get_user_token(),
+  use_qa = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ get_dataset_file(
 \item{filename}{Filename}
 
 \item{user_token}{DELVE user token}
+
+\item{use_qa}{Boolean flag to use QA version of DELVE}
 }
 \description{
 Get a specific version of a file from within a DELVE project and dataset
