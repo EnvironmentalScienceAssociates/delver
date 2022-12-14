@@ -32,7 +32,14 @@ Set DELVE user token. `set_user_token` will open a dialog box if no token is pro
 set_user_token()
 ```
 
-Query DELVE to return a dataset file. Components of a query can be extracted from the DELVE URL for a given file, e.g., https://dmvs.water.ca.gov/file-details?ProjectID=42&DataSetID=157&Version=1&FileName=EDBPS_collecting-water-quality-data_20210803.csv.
+Get metadata for datasets and projects.
+
+```
+projects = get_projects()
+datasets = get_datasets()
+```
+
+Get a specific version of a file from within a DELVE project and dataset.
 
 ```
 df = get_dataset_file(project_id = 42, dataset_id = 157, version = 1,
