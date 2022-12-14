@@ -22,7 +22,7 @@ get_dataset_file <- function(project_id, dataset_id, version, filename,
 
 #' Get projects
 #'
-#' Get list of DELVE projects as a dataframe
+#' Get DELVE project metadata as a dataframe
 #'
 #' @md
 #' @param user_token     DELVE user token
@@ -34,7 +34,7 @@ get_projects <- function(user_token = get_user_token(), use_qa = FALSE) {
     get_delve(user_token) |>
     httr2::resp_body_json()
 
-  df = lapply(resp, function(lst){
+  df_list = lapply(resp, function(lst){
     data.frame(ProjectID = make_na(lst[["ID"]]),
                ProjectName = make_na(lst[["Name"]]),
                DatasetTypes = make_na(lst[["DataSetTypesCSV"]]),
@@ -43,7 +43,34 @@ get_projects <- function(user_token = get_user_token(), use_qa = FALSE) {
                EndDate = make_na(lst[["end-date"]]))
   })
 
-  do.call(rbind, df)
+  do.call(rbind, df_list)
+}
+
+#' Get datasets
+#'
+#' Get DELVE dataset metadata as a dataframe
+#'
+#' @md
+#' @param user_token     DELVE user token
+#' @param use_qa         Boolean flag to use QA version of DELVE
+#' @export
+
+get_datasets <- function(user_token = get_user_token(), use_qa = FALSE) {
+  resp = glue::glue("{api_url(use_qa)}data-sets-grid-data/") |>
+    get_delve(user_token) |>
+    httr2::resp_body_json()
+
+  df_list = lapply(resp, function(lst){
+    data.frame(ProjectID = make_na(lst[["ProjectID"]]),
+               DatasetID = make_na(lst[["ID"]]),
+               DatasetName = make_na(lst[["Name"]]),
+               DatasetType = make_na(lst[["TypeName"]]),
+               Status = make_na(lst[["LatestVersionStatusName"]]),
+               CreatedBy = make_na(lst[["CreateUserFullName"]]),
+               LastUpdated = make_na(lst[["UpdateDate"]]))
+  })
+
+  do.call(rbind, df_list)
 }
 
 # Private Functions -------------------------------------------------------
