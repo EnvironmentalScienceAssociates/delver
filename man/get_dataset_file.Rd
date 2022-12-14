@@ -16,7 +16,7 @@ get_dataset_file(
 \arguments{
 \item{project_id}{ProjectID (integer)}
 
-\item{dataset_id}{DataSetID (integer)}
+\item{dataset_id}{DatasetID (integer)}
 
 \item{version}{Version (integer)}
 
