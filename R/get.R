@@ -1,7 +1,7 @@
 
 #' Get dataset file
 #'
-#' Get a specific version of a file from within a DELVE project and dataset
+#' Get a file from within a DELVE project, dataset, and version
 #'
 #' @md
 #' @param project_id     ProjectID (integer)
@@ -30,7 +30,7 @@ get_dataset_file <- function(project_id, dataset_id, version, filename,
 #' @export
 
 get_projects <- function(user_token = get_user_token(), use_qa = FALSE) {
-  resp = glue::glue("{api_url(use_qa)}projects-grid-data/") |>
+  resp = glue::glue("{api_url(use_qa)}projects-grid-data") |>
     get_delve(user_token) |>
     httr2::resp_body_json()
 
@@ -56,7 +56,7 @@ get_projects <- function(user_token = get_user_token(), use_qa = FALSE) {
 #' @export
 
 get_datasets <- function(user_token = get_user_token(), use_qa = FALSE) {
-  resp = glue::glue("{api_url(use_qa)}data-sets-grid-data/") |>
+  resp = glue::glue("{api_url(use_qa)}data-sets-grid-data") |>
     get_delve(user_token) |>
     httr2::resp_body_json()
 
@@ -67,7 +67,8 @@ get_datasets <- function(user_token = get_user_token(), use_qa = FALSE) {
                DatasetType = make_na(lst[["TypeName"]]),
                Status = make_na(lst[["LatestVersionStatusName"]]),
                CreatedBy = make_na(lst[["CreateUserFullName"]]),
-               LastUpdated = make_na(lst[["UpdateDate"]]))
+               LastUpdated = make_na(lst[["UpdateDate"]]),
+               LatestVersion = make_na(lst[["LatestVersion"]]))
   })
 
   do.call(rbind, df_list)

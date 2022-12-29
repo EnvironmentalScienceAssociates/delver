@@ -27,5 +27,5 @@ get_dataset_file(
 \item{use_qa}{Boolean flag to use QA version of DELVE}
 }
 \description{
-Get a specific version of a file from within a DELVE project and dataset
+Get a file from within a DELVE project, dataset, and version
 }
