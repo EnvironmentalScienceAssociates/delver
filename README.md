@@ -34,11 +34,14 @@ The DELVE user token is found on DELVE in Workspace under the 'PowerBI Profile' 
 set_user_token()
 ```
 
-Get metadata for datasets and projects.
+Get metadata for projects, datasets, dataset types, file types, and keywords.
 
 ```
 projects = get_projects()
 datasets = get_datasets()
+dataset_types = get_dataset_types()
+file_types = get_file_types()
+keywords = get_keywords()
 ```
 
 Get a specific version of a file from within a DELVE project and dataset.
