@@ -2,6 +2,7 @@
 
 export(get_dataset_file)
 export(get_datasets)
+export(get_filetypes)
 export(get_projects)
 export(get_user_token)
 export(set_user_token)

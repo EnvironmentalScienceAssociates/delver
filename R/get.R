@@ -74,6 +74,29 @@ get_datasets <- function(user_token = get_user_token(), use_qa = FALSE) {
   do.call(rbind, df_list)
 }
 
+#' Get file types
+#'
+#' Get DELVE filetype metadata as a dataframe
+#'
+#' @md
+#' @param user_token     DELVE user token
+#' @param use_qa         Boolean flag to use QA version of DELVE
+#' @export
+
+get_filetypes <- function(user_token = get_user_token(), use_qa = FALSE) {
+  resp = glue::glue("{api_url(use_qa)}file-types") |>
+    get_delve(user_token) |>
+    httr2::resp_body_json()
+
+  df_list = lapply(resp, function(lst){
+    data.frame(FileTypeID = make_na(lst[["FileTypeID"]]),
+               CanonicalName = make_na(lst[["CanonicalName"]]),
+               Name = make_na(lst[["Name"]]))
+  })
+
+  do.call(rbind, df_list)
+}
+
 # Private Functions -------------------------------------------------------
 
 api_url <- function(use_qa){
