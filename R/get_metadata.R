@@ -9,7 +9,7 @@
 #' @export
 
 get_projects <- function(user_token = get_user_token(), use_qa = FALSE) {
-  resp = glue::glue("{api_url(use_qa)}projects-grid-data") |>
+  resp = glue::glue("{api_url(use_qa)}/projects-grid-data") |>
     get_delve(user_token) |>
     httr2::resp_body_json()
 
@@ -28,7 +28,7 @@ get_projects <- function(user_token = get_user_token(), use_qa = FALSE) {
 #' @rdname get_projects
 #' @export
 get_datasets <- function(user_token = get_user_token(), use_qa = FALSE) {
-  resp = glue::glue("{api_url(use_qa)}data-sets-grid-data") |>
+  resp = glue::glue("{api_url(use_qa)}/data-sets-grid-data") |>
     get_delve(user_token) |>
     httr2::resp_body_json()
 
@@ -49,7 +49,7 @@ get_datasets <- function(user_token = get_user_token(), use_qa = FALSE) {
 #' @rdname get_projects
 #' @export
 get_dataset_types <- function(user_token = get_user_token(), use_qa = FALSE) {
-  resp = glue::glue("{api_url(use_qa)}data-set-types") |>
+  resp = glue::glue("{api_url(use_qa)}/data-set-types") |>
     get_delve(user_token) |>
     httr2::resp_body_json()
 
@@ -66,7 +66,7 @@ get_dataset_types <- function(user_token = get_user_token(), use_qa = FALSE) {
 #' @rdname get_projects
 #' @export
 get_file_types <- function(user_token = get_user_token(), use_qa = FALSE) {
-  resp = glue::glue("{api_url(use_qa)}file-types") |>
+  resp = glue::glue("{api_url(use_qa)}/file-types") |>
     get_delve(user_token) |>
     httr2::resp_body_json()
 
@@ -82,7 +82,7 @@ get_file_types <- function(user_token = get_user_token(), use_qa = FALSE) {
 #' @rdname get_projects
 #' @export
 get_keywords <- function(user_token = get_user_token(), use_qa = FALSE) {
-  glue::glue("{api_url(use_qa)}keywords") |>
+  glue::glue("{api_url(use_qa)}/keywords") |>
     get_delve(user_token) |>
     httr2::resp_body_json() |>
     unlist() |>
@@ -95,7 +95,7 @@ get_keywords <- function(user_token = get_user_token(), use_qa = FALSE) {
 api_url <- function(use_qa){
   # returns base url
   qa = if (use_qa) "qa." else ""
-  glue::glue("https://gateway.{qa}delve.water.ca.gov/api/")
+  glue::glue("https://gateway.{qa}delve.water.ca.gov/api")
 }
 
 get_delve <- function(url, user_token){

@@ -14,7 +14,7 @@
 
 get_dataset_file <- function(project_id, dataset_id, version, filename,
                              user_token = get_user_token(), use_qa = FALSE) {
-  glue::glue("{api_url(use_qa)}projects/{project_id}/data-sets/{dataset_id}/versions/{version}/files/{filename}/download") |>
+  glue::glue("{api_url(use_qa)}/projects/{project_id}/data-sets/{dataset_id}/versions/{version}/files/{filename}/download") |>
     get_delve(user_token) |>
     httr2::resp_body_string() |>
     readr::read_csv()
