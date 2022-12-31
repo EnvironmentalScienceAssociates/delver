@@ -44,9 +44,15 @@ file_types = get_file_types()
 keywords = get_keywords()
 ```
 
-Get a specific version of a file from within a DELVE project and dataset.
+Get metadata for files within a DELVE, project, dataset, and version.
 
 ```
-df = get_dataset_file(project_id = 42, dataset_id = 157, version = 1,
-                      filename = "EDBPS_collecting-water-quality-data_20210803.csv")
+get_dataset_files(project_id = 69, dataset_id = 172, version = 1)
+```
+
+Get a file from within a DELVE project, dataset, and version.
+
+```
+get_dataset_file(project_id = 42, dataset_id = 157, version = 1,
+                 filename = "EDBPS_collecting-water-quality-data_20210803.csv")
 ```
