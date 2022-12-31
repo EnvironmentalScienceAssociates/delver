@@ -44,7 +44,7 @@ file_types = get_file_types()
 keywords = get_keywords()
 ```
 
-Get metadata for files within a DELVE, project, dataset, and version.
+Get metadata for files within a DELVE project, dataset, and version.
 
 ```
 get_dataset_files(project_id = 69, dataset_id = 172, version = 1)
