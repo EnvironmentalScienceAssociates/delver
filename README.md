@@ -17,7 +17,6 @@ and GitHub.
 ```
 remotes::install_github("EnvironmentalScienceAssociates/delver")
 ```
-```
 
 ### Usage
 
