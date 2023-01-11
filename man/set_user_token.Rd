@@ -5,9 +5,12 @@
 \alias{get_user_token}
 \title{Set or get DELVE API token}
 \usage{
-set_user_token(token = NULL)
+set_user_token(user_token = NULL)
 
 get_user_token()
+}
+\arguments{
+\item{user_token}{DELVE user token}
 }
 \description{
 Set or get DELVE API token as environmental variable
