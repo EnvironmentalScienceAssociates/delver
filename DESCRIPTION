@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Travis Hinkelman
 Maintainer: Travis Hinkelman <thinkelman@esassoc.com>
 Description: R interface to DELVE API.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
