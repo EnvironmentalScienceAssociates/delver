@@ -6,16 +6,23 @@ R interface to components of the [DELVE](https://dmvs.water.ca.gov/) API based o
 
 ### Installation
 
-`delver` is available through R-universe
+Enable repository.
 
 ```
-install.packages("delver", repos = "https://environmentalscienceassociates.r-universe.dev")
+options(repos = c(ESA = "https://environmentalscienceassociates.r-universe.dev",
+                  CRAN = "https://cloud.r-project.org"))
 ```
 
-and GitHub.
+Download and install `delver` in R.
 
 ```
-remotes::install_github("EnvironmentalScienceAssociates/delver")
+install.packages("delver")
+```
+
+Browse the `delver` manual pages.
+
+```
+help(package = "delver")
 ```
 
 ### Usage
