@@ -2,7 +2,7 @@
 
 ## delver
 
-R interface to components of the [DELVE](https://dmvs.water.ca.gov/) API based on [`httr2` package](https://httr2.r-lib.org/).
+R interface to components of the [DELVE](https://delve.water.ca.gov/) API based on [`httr2` package](https://httr2.r-lib.org/).
 
 ### Installation
 
