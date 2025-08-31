@@ -8,7 +8,7 @@
 #' @export
 set_user_token <- function(user_token = NULL) {
   if (is.null(user_token)) {
-    token <- askpass::askpass("Please enter your DELVE user token")
+    user_token <- askpass::askpass("Please enter your DELVE user token")
   }
   Sys.setenv("X-DELVE-USER-TOKEN" = user_token)
 }
